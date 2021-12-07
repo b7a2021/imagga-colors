@@ -1,16 +1,20 @@
 package telran.imagga.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 import lombok.Getter;
 
 @Getter
 public class Color {
-	String closest_palette_color_parent;
-	String closest_palette_color;
+	@JsonAlias({"closest_palette_color_parent"})
+	String colorParent;
+	@JsonAlias({"closest_palette_color"})
+	String color;
 	Double percent;
 	
 	@Override
 	public String toString() {
-		return closest_palette_color + "\t\t" + closest_palette_color_parent + "\t\t" + percent;
+		return color + "\t\t" + colorParent + "\t\t" + percent;
 	}
 
 }
